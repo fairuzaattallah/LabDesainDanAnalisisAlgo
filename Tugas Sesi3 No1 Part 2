@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n = 5, jumlah = 5, data_cari;
+  int input[] = {0, 6, 12, 18, 24};
+  cout << "Deret Data : ";
+  for (int x = 0; x < n; x++) {
+    cout << input[x] << " ";
+  }
+  cout << endl;
+  cout << "\nMasukkan data yang ingin dicari: ";
+  cin >> data_cari;
+
+  // Pencarian Sequential Search
+  int tm = 0, R = jumlah - 1, L = 0, mid = 0;
+  bool ketemu = false;
+  while (L <= R) {
+    mid = (L + R) / 2;
+    if (input[mid] == data_cari) {
+      ketemu = true;
+      break;
+    } else if (input[mid] < data_cari) {
+      L = mid + 1;
+    } else {
+      R = mid - 1;
+    }
+  }
+
+  // Output hasil pencarian
+  if (ketemu) {
+    cout << "Data ditemukan pada indeks ke-" << mid << endl;
+  } else {
+    cout << "Data tidak ditemukan" << endl;
+  }
+  return 0;
+}
